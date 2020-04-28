@@ -7,10 +7,6 @@ function setup(){
 	socket = io.connect('http://localhost:3000');
 	socket.on('mouse', newDrawing);
 
-	color[0] = int(random(255));
-    color[1] = int(random(255));
-    color[2] = int(random(255));
-
 }
 
 function newDrawing(data){
@@ -25,7 +21,6 @@ function mouseDragged(){
 	var data ={
 		x: mouseX,
 		y: mouseY
-		color: color
 	}
 
 	socket.emit('mouse', data);
